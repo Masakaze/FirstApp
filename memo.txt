@@ -9,3 +9,7 @@
  git checkout master
 ・ブランチをマージ
  git merge ブランチ名
+・ブランチの削除
+ git branch -d ブランチ名
+・GitHub自体へのコミット
+ git push -u origin master
