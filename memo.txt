@@ -1,0 +1,11 @@
+
+
+◾Gitの操作メモ
+・ブランチの切り方
+ git checkout -b ブランチ名
+・ブランチの確認
+ git branch
+・masterへの戻り方
+ git checkout master
+・ブランチをマージ
+ git merge ブランチ名
