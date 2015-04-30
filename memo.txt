@@ -1,4 +1,10 @@
-
+◾Heroku用の操作メモ
+・herokuへのpush
+ git push heroku master
+・herokuでmigrate
+ heroku run rake db:migrate
+・herokuのrailsにアクセス
+ heroku open
 
 ◾Gitの操作メモ
 ・ブランチの切り方
