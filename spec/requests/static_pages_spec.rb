@@ -2,52 +2,30 @@ require 'spec_helper'
 
 describe "Static pages" do
 
-  describe "Home page" do
-    it "should have the content 'StaticPagesHome'" do      
-      visit root_path
-      expect(page).to have_content('StaticPagesHome')
-    end
+  subject { page }
 
-    it "should have the title 'Home'" do
-      visit root_path
-      expect(page).not_to have_title("Home")
-    end
+  describe "Home page" do
+    before { visit root_path }
+    it { should have_content("StaticPagesHome") }
+    it { should have_title("") }
   end
 
   describe "Help page" do
-    it "should have the content 'StaticPagesHelp'" do
-      visit help_path
-      expect(page).to have_content('StaticPagesHelp')
-    end
-
-    it "should have the title 'Help'" do
-      visit help_path
-      expect(page).to have_title("Help")
-    end
+    before { visit help_path }
+    it { should have_content('StaticPagesHelp') }
+    it { should have_title("Help") }
   end
 
   describe "About page" do
-    it "should have the content 'StaticPagesAbout'" do      
-      visit about_path
-      expect(page).to have_content('StaticPagesAbout')
-    end
-
-    it "should have the title 'About'" do
-      visit about_path
-      expect(page).to have_title("About")
-    end
+    before { visit about_path }
+    it { should have_content('StaticPagesAbout') }
+    it { should have_title("About") }
   end
 
   describe "Contact page" do
-    it "should have the content 'StaticPagesContact'" do
-      visit contact_path
-      expect(page).to have_content('StaticPagesContact')
-    end
-
-    it "should have the title 'Contact'" do
-      visit contact_path
-      expect(page).to have_title("Contact")
-    end
+    before { visit contact_path }
+    it { should have_content('StaticPagesContact') }
+    it { should have_title("Contact") }
   end
 end
 
