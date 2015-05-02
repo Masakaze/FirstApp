@@ -16,6 +16,18 @@ describe "Static pages" do
 
     it_should_behave_like "all static pages"
     it { should_not have_title("Home") }
+
+    it "should have the right link" do
+      visit root_path
+      click_link "About"
+      expect(page).to have_title("About")
+      click_link "Help"
+      expect(page).to have_title("Help")
+      click_link "Contact"
+      expect(page).to have_title("Contact")
+      click_link "Signup"
+      expect(page).to have_title("Signup")
+    end
   end
 
   describe "Help page" do
