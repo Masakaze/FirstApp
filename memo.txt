@@ -24,4 +24,4 @@
 ・ActiveRecord継承クラスのvalidチェック
  ActiveRecord継承クラス.valid?
 ・エラー内容の表示
- ActiveRecord継承クラス.errors.full_msg
+ ActiveRecord継承クラス.errors.full_messages
