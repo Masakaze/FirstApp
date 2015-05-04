@@ -103,4 +103,6 @@ describe User do
       expect(@user.reload.email).to eq mixed_case_email.downcase
     end
   end
+
 end
+ 
