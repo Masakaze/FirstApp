@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       render 'new'
     else
       # ユーザー認証失敗
-      flash[:error] = "Authentication failed"
+      flash[:error] = "Authentication failed:Invalid"
       render 'new'
     end
   end
