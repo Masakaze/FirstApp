@@ -8,7 +8,9 @@
   </head>
   <body>
     <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>"><%= value %></div>
+	<div id="alert-<%= key %>">
+      <div class="alert alert-<%= key %>"><%= value %></div>
+	</div>
     <% end %>
 	<%= render 'layouts/header' %>
 	<%= yield %>
