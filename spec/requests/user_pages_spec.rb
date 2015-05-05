@@ -44,6 +44,12 @@ describe "User pages" do
       it "should create user" do
         expect { click_button submit }.to change(User, :count).by(1)
       end
+
+      describe "after saving user" do
+        before { click_button submit }
+        let(:save_user) { User.find_by(email: "user@example.com") }
+        it { should have_content(save_user.name) }
+      end
     end
   end
 end
