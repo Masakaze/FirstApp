@@ -4,6 +4,7 @@ FirstApp::Application.routes.draw do
   match '/help', 		to: 'static_pages#help', 		via: 'get'
   match '/contact', 	to: 'static_pages#contact', 	via: 'get'
   match '/signup', 		to: 'users#new', 				via: 'get'
+  match '/signin', 		to: 'sessions#new', 			via: 'get'
   resources :microposts
 
   resources :users
