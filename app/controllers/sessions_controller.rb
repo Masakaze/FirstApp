@@ -9,7 +9,8 @@ class SessionsController < ApplicationController
     if user != nil && user.authenticate(params[:session][:password])
       # ユーザー認証成功
       flash.now[:success] = "Authentication success"
-      render 'new'
+      sign_in user
+      redirect_to user
     else
       # ユーザー認証失敗
       flash.now[:error] = "Authentication failed:Invalid"
