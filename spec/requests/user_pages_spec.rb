@@ -49,6 +49,7 @@ describe "User pages" do
         before { click_button submit }
         let(:save_user) { User.find_by(email: "user@example.com") }
         it { should have_content(save_user.name) }
+        it { should have_link("Sign out") }
       end
     end
   end
