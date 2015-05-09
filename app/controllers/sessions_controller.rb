@@ -7,9 +7,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:session][:email].downcase)
+    user = User.find_by(email: params[:email].downcase)
 
-    if user != nil && user.authenticate(params[:session][:password])
+    if user != nil && user.authenticate(params[:password])
       # ユーザー認証成功
       flash.now[:success] = "Authentication success"
       sign_in user
