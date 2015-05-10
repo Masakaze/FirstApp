@@ -44,6 +44,17 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash.now[:success] = "update user success"
+      render 'show'
+#      redirect_to @user
+    else
+      flash.now[:error] = "update user failed"
+      render 'edit'
+    end
+
+=begin
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -53,6 +64,7 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
+=end
   end
 
   # DELETE /users/1
