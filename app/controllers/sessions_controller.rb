@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       # ユーザー認証成功
       flash.now[:success] = "Authentication success"
       sign_in user
-      redirect_to user
+      redirect_back_or user
     else
       # ユーザー認証失敗
       flash.now[:error] = "Authentication failed:Invalid"
