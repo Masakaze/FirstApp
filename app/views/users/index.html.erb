@@ -1,8 +1,10 @@
-<h1>Listing users</h1>
+<% provide(:title, "All users") %>
+<h1>Listing users(All users)</h1>
 
 <table>
   <thead>
     <tr>
+	  <th>Icon</th>
       <th>Name</th>
       <th>Email</th>
       <th></th>
@@ -14,6 +16,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
+		<td><%= gravatar_for user, size: 52 %></td>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td><%= link_to 'Show', user %></td>
