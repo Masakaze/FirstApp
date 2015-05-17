@@ -74,6 +74,11 @@ describe "AuthenticationPages" do
         end
       end
     end
+
+    describe "in the Users Controller" do
+      before { visit users_path }
+      it { should have_title("Sign in") }
+    end
   end
 
   describe "wrong signed user" do
