@@ -113,6 +113,19 @@ describe "AuthenticationPages" do
     describe "submitting a DELETE request to the Users#destroy action" do
       before { delete user_path(user) }
       specify { expect(response).to redirect_to(root_path) }
-    end    
+    end
+  end
+
+  describe "admin user not delete self" do
+    let(:admin) { FactoryGirl.create(:admin) }
+
+    before {
+      sign_in admin, no_capybara: true
+    }
+
+    describe "submitting a DELETE request to the Users#destroy action to admin" do
+      before { delete user_path(admin) }
+      specify { expect(response).to redirect_to root_path }
+    end
   end
 end

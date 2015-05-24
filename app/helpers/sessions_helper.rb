@@ -36,4 +36,8 @@ module SessionsHelper
   def store_location
     session[:return_to] = request.url
   end
+
+  def is_admin
+    current_user.admin?
+  end
 end

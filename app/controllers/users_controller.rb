@@ -79,11 +79,16 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.destroy
-    flash[:success] = "#{@user.name} destroy success"
-    respond_to do |format|
-      format.html { redirect_to users_url }
-      format.json { head :no_content }
+    if @user.admin
+      flash[:error] = "admin user cannot delete"
+      redirect_to root_path
+    else
+      @user.destroy
+      flash[:success] = "#{@user.name} destroy success"
+      respond_to do |format|
+        format.html { redirect_to users_url }
+        format.json { head :no_content }
+      end
     end
   end
 
@@ -109,6 +114,6 @@ class UsersController < ApplicationController
     end
 
     def admin_user
-      redirect_to(root_path) unless current_user.admin?
+      redirect_to(root_path) unless is_admin
     end
 end
