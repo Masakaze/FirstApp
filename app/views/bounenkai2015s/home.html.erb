@@ -1,1 +1,16 @@
 <h1>忘年会2015用</h1>
+<br>
+<br>
+<h2>箱AとBどっちかしか開けられません。どっちを開けますか?</h2>
+<span>
+<%= form_tag(open_first_box_bounenkai2015s_path, :method => :post) do %>
+	<%= hidden_field_tag :box_name, 'A' %>
+	<%= button_tag "箱Aを開ける" %>
+<% end %>
+
+<%= form_tag(open_first_box_bounenkai2015s_path, :method => :post) do %>
+	<%= hidden_field_tag :box_name, 'B' %>
+	<%= button_tag "箱Bを開ける" %>
+<% end %>
+</span>
+

@@ -3,7 +3,26 @@ class Bounenkai2015sController < ApplicationController
 
   # GET
   def home
+    
+  end
 
+  # POST
+  def open_first_box
+    @box_name = params[:box_name]
+    if params[:box_name] == 'A'
+      @key = Bounenkai2015.first.box_a_key
+    elsif params[:box_name] == 'B'
+      @key = Bounenkai2015.first.box_b_key
+    else
+      abort
+    end
+
+    render 'open_first_box'
+  end
+
+  # POST
+  def open_box
+    @key = Bounenkai2015.first.box_a_key
   end
 
   # GET /bounenkai2015s

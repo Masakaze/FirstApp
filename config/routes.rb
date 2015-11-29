@@ -2,6 +2,7 @@ FirstApp::Application.routes.draw do
   resources :bounenkai2015s do
     collection do
       get 'home'
+      post 'open_first_box'
     end
   end
 
