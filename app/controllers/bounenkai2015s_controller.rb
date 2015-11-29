@@ -8,14 +8,21 @@ class Bounenkai2015sController < ApplicationController
 
   # POST
   def open_first_box
-    @box_name = params[:box_name]
-    if params[:box_name] == 'A'
-      @key = Bounenkai2015.first.box_a_key
-    elsif params[:box_name] == 'B'
-      @key = Bounenkai2015.first.box_b_key
+    @info = Bounenkai2015.first
+    @is_already_open = @info.first_open_box_name != nil
+    if params[:box_name] != 'A' && params[:box_name] != 'B'
+      abort
+    end
+
+    @info.first_open_box_name = params[:box_name] if @is_already_open == false
+    if @info.first_open_box_name == 'A'
+      @key = @info.box_a_key
+    elsif @info.first_open_box_name == 'B'
+      @key = @info.box_b_key
     else
       abort
     end
+    @info.save
 
     render 'open_first_box'
   end

@@ -1,4 +1,10 @@
-<h1><%= "箱#{@box_name}を選んだ" %></h1>
+<% open_box_name = @info.first_open_box_name %>
+
+<% if @is_already_open %>
+<h1><%= "すでに箱#{open_box_name}を開けてるよ" %></h1>
+<% else %>
+<h1><%= "箱#{open_box_name}を選んだ" %></h1>
+<% end %>
 <br>
 <br>
-<h2><%= "箱#{@box_name}を開ける番号は#{@key}です" %><h2>
+<h2><%= "箱#{open_box_name}を開ける番号は#{@key}です" %><h2>

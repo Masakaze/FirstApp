@@ -1,6 +1,10 @@
 <h1>忘年会2015用</h1>
 <br>
 <br>
+
+<% if @is_already_open %>
+	<%= render 'open_first_box' %>
+<% else %>
 <h2>箱AとBどっちかしか開けられません。どっちを開けますか?</h2>
 <br>
 <br>
@@ -18,3 +22,4 @@
 <% end %>
 </span>
 
+<% end %>
