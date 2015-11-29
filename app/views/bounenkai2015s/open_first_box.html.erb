@@ -7,4 +7,22 @@
 <% end %>
 <br>
 <br>
-<h2><%= "箱#{open_box_name}を開ける番号は#{@key}です" %><h2>
+<h2><%= "箱#{open_box_name}を開ける番号は#{@key}です" %></h2>
+<br>
+<br>
+<br>
+<br>
+<h2><%= "やっぱり箱#{@another_box_name}の中身も気になる?" %></h2>
+<span class="span-choice-left">
+<%= form_tag(open_second_box_bounenkai2015s_path, { :method => :get, :style => "display:inline" }) do %>
+	<%= hidden_field_tag :state, "want" %>
+	<%= button_tag "気になる!!", {:class => "button"} %>
+<% end %>
+</span>
+
+<span class="span-choice-right">
+<%= form_tag(open_second_box_bounenkai2015s_path, { :method => :get, :style => "display:inline" }) do %>
+	<%= hidden_field_tag :state, "no" %>
+	<%= button_tag "別に。。。", {:class => "button"} %>
+<% end %>
+</span>

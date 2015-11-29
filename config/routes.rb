@@ -3,6 +3,7 @@ FirstApp::Application.routes.draw do
     collection do
       get 'home'
       post 'open_first_box'
+      get 'open_second_box'
     end
   end
 

@@ -8,14 +8,14 @@
 <h2>箱AとBどっちかしか開けられません。どっちを開けますか?</h2>
 <br>
 <br>
-<span style="margin-left:15%; margin-right:20%">
+<span class="span-choice-left">
 <%= form_tag(open_first_box_bounenkai2015s_path, { :method => :post, :style => "display:inline;"}) do %>
 	<%= hidden_field_tag :box_name, 'A' %>
 	<%= button_tag "箱Aを開ける", {:class => "button"} %>
 <% end %>
 </span>
 
-<span>
+<span class="span-choice-right">
 <%= form_tag(open_first_box_bounenkai2015s_path, { :method => :post, :style => "display:inline;"}) do %>
 	<%= hidden_field_tag :box_name, 'B' %>
 	<%= button_tag "箱Bを開ける", {:class => "button"} %>

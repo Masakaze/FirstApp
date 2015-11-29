@@ -17,8 +17,10 @@ class Bounenkai2015sController < ApplicationController
     @info.first_open_box_name = params[:box_name] if @is_already_open == false
     if @info.first_open_box_name == 'A'
       @key = @info.box_a_key
+      @another_box_name = 'B'
     elsif @info.first_open_box_name == 'B'
       @key = @info.box_b_key
+      @another_box_name = 'A'
     else
       abort
     end
@@ -27,69 +29,14 @@ class Bounenkai2015sController < ApplicationController
     render 'open_first_box'
   end
 
-  # POST
-  def open_box
-    @key = Bounenkai2015.first.box_a_key
-  end
-
-  # GET /bounenkai2015s
-  # GET /bounenkai2015s.json
-  def index
-    @bounenkai2015s = Bounenkai2015.all
-  end
-
-  # GET /bounenkai2015s/1
-  # GET /bounenkai2015s/1.json
-  def show
-  end
-
-  # GET /bounenkai2015s/new
-  def new
-    @bounenkai2015 = Bounenkai2015.new
-  end
-
-  # GET /bounenkai2015s/1/edit
-  def edit
-  end
-
-  # POST /bounenkai2015s
-  # POST /bounenkai2015s.json
-  def create
-    @bounenkai2015 = Bounenkai2015.new(bounenkai2015_params)
-
-    respond_to do |format|
-      if @bounenkai2015.save
-        format.html { redirect_to @bounenkai2015, notice: 'Bounenkai2015 was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @bounenkai2015 }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @bounenkai2015.errors, status: :unprocessable_entity }
-      end
+  def open_second_box
+    if params[:state] == "want"
+      @msg = "それなら下の謎を解いてくださいよ!"
+    else
+      @msg = "まあまあ、そういわず。下の謎を解いてくださいm(_ _)m"
     end
-  end
 
-  # PATCH/PUT /bounenkai2015s/1
-  # PATCH/PUT /bounenkai2015s/1.json
-  def update
-    respond_to do |format|
-      if @bounenkai2015.update(bounenkai2015_params)
-        format.html { redirect_to @bounenkai2015, notice: 'Bounenkai2015 was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @bounenkai2015.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /bounenkai2015s/1
-  # DELETE /bounenkai2015s/1.json
-  def destroy
-    @bounenkai2015.destroy
-    respond_to do |format|
-      format.html { redirect_to bounenkai2015s_url }
-      format.json { head :no_content }
-    end
+    render 'open_second_box'
   end
 
   private
