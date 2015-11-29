@@ -1,0 +1,2 @@
+module Bounenkai2015sHelper
+end

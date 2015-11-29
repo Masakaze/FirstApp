@@ -1,5 +1,13 @@
 FirstApp::Application.routes.draw do
-  root 	'static_pages#home'
+  resources :bounenkai2015s do
+    collection do
+      get 'home'
+    end
+  end
+
+  root 'bounenkai2015s#home'
+
+#  root 	'static_pages#home'
   match '/about', 		to: 'static_pages#about', 		via: 'get'
   match '/help', 		to: 'static_pages#help', 		via: 'get'
   match '/contact', 	to: 'static_pages#contact', 	via: 'get'

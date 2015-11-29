@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518134323) do
+ActiveRecord::Schema.define(version: 20151129115009) do
+
+  create_table "bounenkai2015s", force: true do |t|
+    t.boolean  "open_first_box"
+    t.string   "box_a_key"
+    t.string   "box_b_key"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "microposts", force: true do |t|
     t.string   "content"
